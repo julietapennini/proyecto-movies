@@ -1,11 +1,10 @@
 import useFetch from '../hooks/useFetch';
-//import Loading from '../components/Loading';
 import { URL_API, API_KEY } from '../utils/constants';
 import { Row, Col } from 'antd';
 
-
 import SliderMovies from '../components/SliderMovies';
 import MovieList from '../components/MovieList';
+import Footer from '../components/Footer';
 
 const Home = () => {
 
@@ -28,6 +27,7 @@ const Home = () => {
                 <MovieList title="Top Mejores Películas" popularMovies={topRankedMovies}/>
              </Col>
          </Row>
+         <Footer/>
      </div>
     )
 }
