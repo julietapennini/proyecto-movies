@@ -71,36 +71,37 @@ const MovieInfo = props => {
             release_date,
             overview,
             genres
-        }} } = props;
+        }
+    } } = props;
 
-    const [inVisibleModal, setIsVisibleModal] = useState(false);
+    const [isVisibleModal, setIsVisibleModal] = useState(false);
 
  
+    const urlTrailer = `${URL_API}/movie/${id}/videos?api_key=${API_KEY}&language=en-ES`;
+    const videoMovie = useFetch(urlTrailer);
 
-    const videoMovie = useFetch(`${URL_API}/movie/${id}/videos?api_key=${API_KEY}&language=en-US`);
-
-    const openModal = () => setIsVisibleModal(true)
-    const closeModal = () => setIsVisibleModal(false)
+    const openModal = () => setIsVisibleModal(true);
+    const closeModal = () => setIsVisibleModal(false);
 
     const renderVideo = () => {
         if(videoMovie.result){
-            if(videoMovie.result.results.lenght > 0){
-                return (
-                    <div>
-                        <Button icon="play-circle" onClick={openModal}>
-                        Ver Trailer
-                        </Button>
-                        <ModalVideo
-                        videoKey={videoMovie.result.results[0].key}
-                        videoPlatform={videoMovie.result.results[0].site}
-                        isOpen={inVisibleModal}
-                        close={closeModal}
-                        />
-                    </div>
-                )
-            }
+          if(videoMovie.result.results.length > 0){
+            return (
+              <>
+                <Button className="ver-trailer" onClick={openModal}>
+                  Ver Trailer
+                </Button>
+                <ModalVideo  
+                  videoKey = {videoMovie.result.results[0].key}
+                  videoPlatform = {videoMovie.result.results[0].site}
+                  isOpen = {isVisibleModal}
+                  close={closeModal}
+                /> 
+              </>
+            )
+          }
         }
-    }
+    }   
     
     return(
         <div>
@@ -109,7 +110,7 @@ const MovieInfo = props => {
                     {title}
                     <p>Año de estreno {moment(release_date, "YYYY-MM-DD").format("YYYY")}</p>                    
                 </h1>
-                <button className="ver-trailer" onClick={renderVideo}>Ver trailer</button>
+                {renderVideo()}
             </div>
             <div className="content">
                 <h3>Information</h3>
