@@ -1,11 +1,14 @@
+import { useState } from 'react';
 import { Row, Col, Button} from 'antd';
 import { useParams } from 'react-router-dom';
 import moment from 'moment';
 import useFetch from '../../hooks/useFetch';
 import { URL_API, API_KEY} from '../../utils/constants';
 import Loading from '../../components/Loading';
+import ModalVideo from '../../components/ModalVideo';
 
 import './movie.sass';
+import { List } from 'antd/lib/form/Form';
 
 const Movie = () => {
 
@@ -37,13 +40,13 @@ const RenderMovie = props => {
 
     return (
         <div className="movie" style={{backgroundImage: `url('${backdropPath}')`}}>
-            <div className="movie__dark"/>
+        <div className="movie__dark"/>
             <Row>
                 <Col span={8} offset={3} className="movie__poster">
                     <PosterMovie image={poster_path}/>
                 </Col>
                 <Col span={11} className="movie__info">
-                    Movie Info...
+                    <MovieInfo movieInfo={props.movieInfo}/>
                 </Col>
             </Row>
         </div> 
@@ -57,6 +60,68 @@ const PosterMovie = props => {
 
     return(
         <div style={{backgroundImage: `url('${posterPath}')`}}></div>
+    )
+}
+
+const MovieInfo = props => {
+    const { movieInfo: {
+        result: {
+            title,
+            id, 
+            release_date,
+            overview,
+            genres
+        }} } = props;
+
+    const [inVisibleModal, setIsVisibleModal] = useState(false);
+
+ 
+
+    const videoMovie = useFetch(`${URL_API}/movie/${id}/videos?api_key=${API_KEY}&language=en-US`);
+
+    const openModal = () => setIsVisibleModal(true)
+    const closeModal = () => setIsVisibleModal(false)
+
+    const renderVideo = () => {
+        if(videoMovie.result){
+            if(videoMovie.result.results.lenght > 0){
+                return (
+                    <div>
+                        <Button icon="play-circle" onClick={openModal}>
+                        Ver Trailer
+                        </Button>
+                        <ModalVideo
+                        videoKey={videoMovie.result.results[0].key}
+                        videoPlatform={videoMovie.result.results[0].site}
+                        isOpen={inVisibleModal}
+                        close={closeModal}
+                        />
+                    </div>
+                )
+            }
+        }
+    }
+    
+    return(
+        <div>
+            <div className="movie__content">
+                <h1>
+                    {title}
+                    <p>Año de estreno {moment(release_date, "YYYY-MM-DD").format("YYYY")}</p>                    
+                </h1>
+                <button className="ver-trailer" onClick={renderVideo}>Ver trailer</button>
+            </div>
+            <div className="content">
+                <h3>Information</h3>
+                <p>{overview}</p>
+                <h3>Gender</h3>
+                <ul>
+                    {genres.map(gender => (
+                        <li key={gender.id}>{gender.name}</li>
+                    ))}
+                </ul>
+            </div>
+        </div>
     )
 }
 

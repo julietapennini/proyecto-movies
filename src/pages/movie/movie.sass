@@ -14,7 +14,7 @@
     opacity: .6
 
   >.ant-row
-    height: 100vh
+    height: 100%
     display: flex
     align-items: center
 
@@ -26,41 +26,55 @@
       background-repeat: no-repeat
       background-position: center
       background-size: contain
+      
+  &__info
+    display: flex
+    align-items: center
+    justify-content: space-between
+    height: 70%
+    margin-left: 2%
 
-    &__info
-        color: white
-        height: 70%
+    &-header
+      display: flex
+      align-items: center
+      justify-content: space-betwee
 
-        &-header
-        display: flex
-        align-items: center
-        justify-content: space-between
 
-        h1
-            color: white
-            margin: 0
-            font-size: 2.5em
+    h1
+      color: white
+      margin: 0
+      font-size: 2.5em
+      p
+        font-size: 20px
+        opacity: .4
 
-            span
-            font-size: .5em
-            margin-left: 2%
-            opacity: .6
+.content
+  width: 80%
+  margin-top: 50px
+  h3
+    color: white
+    font-weight: bold
+    font-size: 1.2em
+  p, li
+    color: white
+    font-size: 1em
 
-        button
-        height: 100% 
-        background-color: transparent
-        color: #ffffff
-        border: 0 
-        font-size: 1.3em
+.ver-trailer
+  height: 100%
+  width: 120px
+  background-color: rgba(255, 255, 255, .7)
+  color: #000000
+  border: 0
+  margin-top: 1vh
+  font-size: 1.1em
+  border: white
+  border-radius: 25px
+  padding: 0.8vh 0.8vh
+  font-weight: bold
+  &:hover,
+  &:focus,
+  &:active
+    background-color: #7f7f7c
+    color: black
 
-        &:hover, &:focus, &:active
-            background-color: transparent
-            color: #4c86f1  
 
-        &-content
-        margin-top: 50px
-
-        h3
-            color: white
-            font-weight: bold
-            font-size: 1em
