@@ -85,11 +85,10 @@ const MovieInfo = props => {
 
     const renderVideo = () => {
         if(videoMovie.result){
-          if(videoMovie.result.results.length > 0){
-            return (
+          if(videoMovie.result.results.length > 0){ return (
               <>
                 <Button className="ver-trailer" onClick={openModal}>
-                  Ver Trailer
+                   View Trailer
                 </Button>
                 <ModalVideo  
                   videoKey = {videoMovie.result.results[0].key}
@@ -99,7 +98,7 @@ const MovieInfo = props => {
                 /> 
               </>
             )
-          }
+            }
         }
     }   
     
