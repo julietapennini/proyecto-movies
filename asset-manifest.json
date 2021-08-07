@@ -1,0 +1,26 @@
+{
+  "files": {
+    "main.css": "/proyecto-movies/static/css/main.8a22ce2d.chunk.css",
+    "main.js": "/proyecto-movies/static/js/main.637c2d4b.chunk.js",
+    "main.js.map": "/proyecto-movies/static/js/main.637c2d4b.chunk.js.map",
+    "runtime-main.js": "/proyecto-movies/static/js/runtime-main.554f5d27.js",
+    "runtime-main.js.map": "/proyecto-movies/static/js/runtime-main.554f5d27.js.map",
+    "static/css/2.3804ad1f.chunk.css": "/proyecto-movies/static/css/2.3804ad1f.chunk.css",
+    "static/js/2.7a2859b4.chunk.js": "/proyecto-movies/static/js/2.7a2859b4.chunk.js",
+    "static/js/2.7a2859b4.chunk.js.map": "/proyecto-movies/static/js/2.7a2859b4.chunk.js.map",
+    "static/js/3.807d80cf.chunk.js": "/proyecto-movies/static/js/3.807d80cf.chunk.js",
+    "static/js/3.807d80cf.chunk.js.map": "/proyecto-movies/static/js/3.807d80cf.chunk.js.map",
+    "index.html": "/proyecto-movies/index.html",
+    "static/css/2.3804ad1f.chunk.css.map": "/proyecto-movies/static/css/2.3804ad1f.chunk.css.map",
+    "static/css/main.8a22ce2d.chunk.css.map": "/proyecto-movies/static/css/main.8a22ce2d.chunk.css.map",
+    "static/js/2.7a2859b4.chunk.js.LICENSE.txt": "/proyecto-movies/static/js/2.7a2859b4.chunk.js.LICENSE.txt",
+    "static/media/logo-cine.e5a33755.svg": "/proyecto-movies/static/media/logo-cine.e5a33755.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.554f5d27.js",
+    "static/css/2.3804ad1f.chunk.css",
+    "static/js/2.7a2859b4.chunk.js",
+    "static/css/main.8a22ce2d.chunk.css",
+    "static/js/main.637c2d4b.chunk.js"
+  ]
+}
